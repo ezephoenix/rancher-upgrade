@@ -114,6 +114,7 @@ var deployUpgrade = function(){
       source = RANCHER_COMPOSE_OSX;
     }
 
+    console.log(source);
     new download({extract: true})
       .get(source)
       .dest(".")
