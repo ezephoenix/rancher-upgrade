@@ -10,7 +10,7 @@ unzip       = require('unzip2');
 del         = require('delete');
 sh          = require('shelljs/global');
 
-var RANCHER_COMPOSE_LINUX   = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/linux-386/rancher-compose";
+var RANCHER_COMPOSE_LINUX   = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/linux-amd64/rancher-compose";
 var RANCHER_COMPOSE_WINDOWS = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/windows-386.exe/rancher-compose.exe";
 var RANCHER_COMPOSE_OSX     = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/darwin-amd64/rancher-compose";
 
