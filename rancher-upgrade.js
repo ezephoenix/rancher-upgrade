@@ -16,6 +16,7 @@ var RANCHER_COMPOSE_OSX     = "https://releases.rancher.com/compose/beta/v0.4.2/
 
 // the rancher-compose archives above contain an intermediate folder that varies by version
 // this should be periodically updated as rancher releases new versions
+// RJZ let's just get the raw file, and not bother with folders and extraction
 //var RANCHER_COMPOSE_DIR_NAME = "rancher-compose-v0.4.2";
 
 var isWin = /^win/.test(process.platform);
@@ -114,7 +115,7 @@ var deployUpgrade = function(){
       source = RANCHER_COMPOSE_OSX;
     }
 
-    console.log(source);
+    console.log("source: " + source);
     new download({mode: '755'})
       .get(source)
       .dest(".")
