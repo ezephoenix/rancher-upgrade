@@ -10,9 +10,9 @@ unzip       = require('unzip2');
 del         = require('delete');
 sh          = require('shelljs/global');
 
-var RANCHER_COMPOSE_LINUX   = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/linux-amd64/rancher-compose.gz";
-var RANCHER_COMPOSE_WINDOWS = "https://github.com/rancher/rancher-compose/releases/download/v0.4.2/rancher-compose-windows-386-v0.4.2.zip";
-var RANCHER_COMPOSE_OSX     = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/darwin-amd64/rancher-compose.gz";
+var RANCHER_COMPOSE_LINUX   = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/linux-386/rancher-compose";
+var RANCHER_COMPOSE_WINDOWS = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/windows-386.exe/rancher-compose.exe";
+var RANCHER_COMPOSE_OSX     = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/darwin-amd64/rancher-compose";
 
 // the rancher-compose archives above contain an intermediate folder that varies by version
 // this should be periodically updated as rancher releases new versions
@@ -115,7 +115,7 @@ var deployUpgrade = function(){
     }
 
     console.log(source);
-    new download({extract: true})
+    new download({extract: false})
       .get(source)
       .dest(".")
       .run(function(){
