@@ -10,13 +10,13 @@ unzip       = require('unzip2');
 del         = require('delete');
 sh          = require('shelljs/global');
 
-var RANCHER_COMPOSE_LINUX   = "https://releases.rancher.com/compose/beta/latest/rancher-compose-linux-amd64.tar.gz";
-var RANCHER_COMPOSE_WINDOWS = "https://releases.rancher.com/compose/beta/latest/rancher-compose-windows-386.zip";
-var RANCHER_COMPOSE_OSX     = "https://releases.rancher.com/compose/beta/latest/rancher-compose-darwin-amd64.tar.gz";
+var RANCHER_COMPOSE_LINUX   = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/linux-amd64/rancher-compose.gz";
+var RANCHER_COMPOSE_WINDOWS = "https://github.com/rancher/rancher-compose/releases/download/v0.4.2/rancher-compose-windows-386-v0.4.2.zip";
+var RANCHER_COMPOSE_OSX     = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/darwin-amd64/rancher-compose.gz";
 
 // the rancher-compose archives above contain an intermediate folder that varies by version
 // this should be periodically updated as rancher releases new versions
-var RANCHER_COMPOSE_DIR_NAME = "rancher-compose-v0.4.1";
+var RANCHER_COMPOSE_DIR_NAME = "rancher-compose-v0.4.2";
 
 var isWin = /^win/.test(process.platform);
 var isOSX = /^darwin/.test(process.platform);
