@@ -16,7 +16,7 @@ var RANCHER_COMPOSE_OSX     = "https://releases.rancher.com/compose/beta/v0.4.2/
 
 // the rancher-compose archives above contain an intermediate folder that varies by version
 // this should be periodically updated as rancher releases new versions
-var RANCHER_COMPOSE_DIR_NAME = "rancher-compose-v0.4.2";
+//var RANCHER_COMPOSE_DIR_NAME = "rancher-compose-v0.4.2";
 
 var isWin = /^win/.test(process.platform);
 var isOSX = /^darwin/.test(process.platform);
@@ -115,7 +115,7 @@ var deployUpgrade = function(){
     }
 
     console.log(source);
-    new download({extract: false})
+    new download({mode: '755'})
       .get(source)
       .dest(".")
       .run(function(){
@@ -124,13 +124,13 @@ var deployUpgrade = function(){
         var cmd = null;
         if(isWin){
           console.log("Detected environment: Windows");
-          cmd = RANCHER_COMPOSE_DIR_NAME + "/rancher-compose.exe ";
+          cmd = "rancher-compose.exe ";
         } else if(isOSX){
           console.log("Detected environment: OSX");
-          cmd = RANCHER_COMPOSE_DIR_NAME + "/rancher-compose ";
+          cmd = "./rancher-compose ";
         } else {
           console.log("Detected environment: Linux");
-          cmd = RANCHER_COMPOSE_DIR_NAME + "/rancher-compose ";
+          cmd = "./rancher-compose ";
         }
 
         console.log("running:\n" + cmd + args);
