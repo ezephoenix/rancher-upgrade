@@ -10,14 +10,14 @@ unzip       = require('unzip2');
 del         = require('delete');
 sh          = require('shelljs/global');
 
-var RANCHER_COMPOSE_LINUX   = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/linux-amd64/rancher-compose";
-var RANCHER_COMPOSE_WINDOWS = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/windows-386.exe/rancher-compose.exe";
-var RANCHER_COMPOSE_OSX     = "https://releases.rancher.com/compose/beta/v0.4.2/binaries/darwin-amd64/rancher-compose";
+var RANCHER_COMPOSE_LINUX   = "https://github.com/rancher/rancher-compose/releases/download/v0.5.0/rancher-compose-linux-amd64-v0.5.0.tar.gz";
+var RANCHER_COMPOSE_WINDOWS = "https://github.com/rancher/rancher-compose/releases/download/v0.5.0/rancher-compose-windows-amd64-v0.5.0.zip";
+var RANCHER_COMPOSE_OSX     = "https://github.com/rancher/rancher-compose/releases/download/v0.5.0/rancher-compose-darwin-amd64-v0.5.0.tar.gz";
 
 // the rancher-compose archives above contain an intermediate folder that varies by version
 // this should be periodically updated as rancher releases new versions
 // RJZ let's just get the raw file, and not bother with folders and extraction
-//var RANCHER_COMPOSE_DIR_NAME = "rancher-compose-v0.4.2";
+//var RANCHER_COMPOSE_DIR_NAME = "rancher-compose-v0.5.0";
 
 var isWin = /^win/.test(process.platform);
 var isOSX = /^darwin/.test(process.platform);
@@ -116,7 +116,7 @@ var deployUpgrade = function(){
     }
 
     console.log("source: " + source);
-    new download({mode: '755'})
+    new download({extract: true, mode: '755'})
       .get(source)
       .dest(".")
       .run(function(){
