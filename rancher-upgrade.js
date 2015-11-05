@@ -140,6 +140,8 @@ var deployUpgrade = function(){
         var exitCode = exec(cmd + args, function(error, stdout, stderr){
           if(error){
             console.log(error);
+            console.log(stderr);
+            console.log("Exit code: " + exitCode);
           }
         });
       });
